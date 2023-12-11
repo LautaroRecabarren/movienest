@@ -10,7 +10,7 @@
 
 <style scoped>
 .movie-card {
-
+ display: block;
 }
 
 .movie-img {

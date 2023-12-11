@@ -13,7 +13,7 @@
     "@nuxt/devtools": "latest",
     "@types/webpack": "^5.28.5",
     "nuxt": "^3.8.2",
-    "vue": "^3.3.10",
+    "vue": "^3.3.11",
     "vue-router": "^4.2.5",
     "webpack": "^5.89.0"
   }
