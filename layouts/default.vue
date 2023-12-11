@@ -1,12 +1,9 @@
 <template>
-  <div>
-    <header>
-      <img src="/img/logo.svg" alt="MovieNest Logo" />
-    </header>
+  <div class="default-layout">
     <main>
       <slot/>
     </main>
-    <footer>&copy; Lautaro Recabarren - {{ currentYear }}</footer>
+    <Footer/>
   </div>
 </template>
 
@@ -14,11 +11,18 @@
 useHead({
     titleTemplate : " %s - LogIn ",
 });
-
-const currentYear = new Date().getUTCFullYear();
-
 </script>
 
 <style scoped>
+.default-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 7rem;
+}
 
+main {
+  width: 100%;
+}
 </style>
