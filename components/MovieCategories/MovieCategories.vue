@@ -18,14 +18,14 @@ const activeButton = ref(null)
 const scrollContainer = ref<HTMLElement | null>(null)
 
 const buttonContent = [
-    'Contenido 1',
-    'Contenido 2',
-    'Contenido 3',
-    'Contenido 4',
-    'Contenido 5',
-    'Contenido 6',
-    'Contenido 7',
-    'Contenido 8'
+    'Categorie 1',
+    'Categorie 2',
+    'Categorie 3',
+    'Categorie 4',
+    'Categorie 5',
+    'Categorie 6',
+    'Categorie 7',
+    'Categorie 8'
 ]
 
 const scrollToButton = (index: number) => {

@@ -22,3 +22,17 @@ body {
       overflow: hidden;
     }
   }
+
+  button {
+    transition: transform 0.3s ease;
+  }
+
+  button:active {
+    transform: scale(0.98);
+  }
+
+input:focus,
+input:active,
+input:hover {
+    outline: 1.5px solid #0cc1ce00;
+}

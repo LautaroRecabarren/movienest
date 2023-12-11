@@ -37,6 +37,8 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+
+    text-align: left;
 }
 
 .home-title h3 {

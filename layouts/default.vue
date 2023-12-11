@@ -1,5 +1,5 @@
 <template>
-  <div class="default-layout">
+  <div class="default">
     <main>
       <slot/>
     </main>
@@ -14,7 +14,7 @@ useHead({
 </script>
 
 <style scoped>
-.default-layout {
+.default {
   display: flex;
   flex-direction: column;
   align-items: center;
