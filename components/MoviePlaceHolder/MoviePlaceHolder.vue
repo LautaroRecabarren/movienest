@@ -1,9 +1,11 @@
 <template>
-    <div class="movie-card" v-if="movie">
-        <img :src="movie.Poster" alt="movie banner" class="movie-img">
-        <h3>{{ movie.Title }}</h3>
-        <RatingStars :score="movie.Metascore" class="stars"/>
-    </div>
+    <NuxtLink :to="`/movie/_id`" v-if="movie">
+        <div class="movie-card">
+            <img :src="movie.Poster" alt="movie banner" class="movie-img">
+            <h3 class="no-underline">{{ movie.Title }}</h3>
+            <RatingStars :score="movie.Metascore" class="stars"/>
+        </div>
+    </NuxtLink>
 </template>
 
 <script>
@@ -41,6 +43,10 @@ export default {
     align-items: center;
 }
 
+.nuxt-link-active, .nuxt-link-exact-active {
+    text-decoration: none;
+    color: inherit;
+}
 .movie-img {
     width: 6.5rem;
     height: 9.5rem;
@@ -65,6 +71,7 @@ export default {
     font-weight: 400;
     line-height: normal;
     text-align: center;
+    text-decoration: none;
 
     margin: 0.11rem 0;
 }

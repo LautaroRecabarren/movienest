@@ -1,7 +1,16 @@
 <script setup>
-const route = useRoute();
-const showUser = computed(() => route.path === '/movies');
-const showBack = computed(() => route.path === '/movie/_id');
+import { useRouter, useRoute } from 'vue-router'
+import { computed } from 'vue'
+
+const route = useRoute()
+const router = useRouter()
+
+const showUser = computed(() => route.path === '/movies')
+const showBack = computed(() => route.path === '/movie/_id')
+
+const goBack = () => {
+    router.push('/movies')
+}
 </script>
 
 <template>
@@ -11,7 +20,7 @@ const showBack = computed(() => route.path === '/movie/_id');
             <button class="menu-button">
                 <img src="/img/menu.svg" alt="menu svg">
             </button>
-            <button v-show="showBack" class="back-button">
+            <button v-show="showBack" @click="goBack" class="back-button">
                 <img src="/img/back.svg" alt="back button">
             </button>
             <button class="font-changer-a">
