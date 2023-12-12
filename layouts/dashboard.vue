@@ -23,9 +23,6 @@ const goBack = () => {
             <button v-show="showBack" @click="goBack" class="back-button">
                 <img src="/img/back.svg" alt="back button">
             </button>
-            <button class="font-changer-a">
-                <img src="/img/font.svg" alt="font svg">
-            </button>
             </div>
             <h1 v-show="showUser">
                 <span style="font-size: 1.125rem">Hi,
@@ -39,9 +36,6 @@ const goBack = () => {
                 to you.
             </h1>
             <SearchBar v-show="showUser" class="searchbar"/>
-            <button class="font-changer-b">
-                <img src="/img/font.svg" alt="font svg">
-            </button>
             <img
             class="logo"
             src="/img/logo.svg?url"
@@ -170,14 +164,6 @@ button {
 
     }
 
-    .font-changer-b {
-        display: block;
-    }
-
-    .font-changer-a {
-        display: none;
-    }
-
     .logo {
         margin: 0;
         position: fixed;
@@ -204,7 +190,7 @@ button {
     }
 
     .back-button {
-        left: 6.7%;
+        left: 6.7rem;
     }
 
 }

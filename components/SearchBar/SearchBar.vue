@@ -11,16 +11,6 @@
         v-model="searchTerm"
         placeholder="Search movies"
       />
-      <img
-        src="/img/divider.svg"
-        class="divider"
-      >
-      <button>
-        <img
-          src="/img/mic.svg"
-          class="mic"
-          >
-      </button>
     </form>
 </template>
 
@@ -58,19 +48,6 @@ img {
   transform: translateY(-50%);
 }
 
-.divider {
-  position: absolute;
-  top: 50%;
-  right: 4.5rem;
-  transform: translateY(-50%);
-}
-
-.mic {
-  position: absolute;
-  top: 50%;
-  right: 1.8rem;
-  transform: translateY(-50%);
-}
 
 form {position: relative;}
 
