@@ -6,28 +6,29 @@
     </div>
 </template>
 
-<script setup lang="ts">
+<script>
 import { ref, onMounted } from 'vue'
 
-interface Movie {
-    Poster: string;
-    Title: string;
-    Metascore: number;
-    // Add other properties as needed
-}
+export default {
+    setup() {
+        const movie = ref(null)
 
-const movie = ref<Movie | null>(null)
+        const apiUrl = 'http://www.omdbapi.com/?i=tt3896198&apikey=59898298'
 
-const apiUrl = 'http://www.omdbapi.com/?i=tt3896198&apikey=59898298'
+        onMounted(async () => {
+            const response = await fetch(apiUrl)
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            movie.value = await response.json()
+            console.log(movie.value)
+        })
 
-onMounted(async () => {
-    const response = await fetch(apiUrl)
-    if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+        return {
+            movie
+        }
     }
-    movie.value = await response.json()
-    console.log(movie.value)
-})
+}
 </script>
 
 <style scoped>
@@ -54,8 +55,7 @@ onMounted(async () => {
 
 .movie-card > h3 {
     margin: 0;
-    width: 5.27556rem;
-    height: 0.97494rem;
+    width: 5.2rem;
     flex-shrink: 0;
 
     color: #FFF;
@@ -71,12 +71,13 @@ onMounted(async () => {
 
 .stars {
     width: 4.33269rem;
-    height: 0.66rem;
+    height: 1.2rem;
     flex-shrink: 0;
 }
 
 @media (min-width: 1280px) {
     .movie-card > h3 {
+        width: 10rem;
         font-size: 1.125rem;
         margin: 0.4rem 0;
     }
@@ -87,8 +88,8 @@ onMounted(async () => {
     }
 
     .stars {
-        width: 8.22994rem;
-        height: 1.25363rem;
+        width: 8.2rem;
+        height: 1.3rem;
 
         margin-top: 0.54rem;
     }

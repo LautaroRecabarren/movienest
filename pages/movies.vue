@@ -6,11 +6,6 @@ definePageMeta({
         middleware: 'auth',
 })
 
-const movies = ref([])
-
-onMounted(async () => {
-  movies.value = await movieService.getMovies()
-})
 </script>
 
 <template>
@@ -24,52 +19,14 @@ onMounted(async () => {
         </h3>
         <div class="showroom-vertical">
             <div class="decoration"></div>
-            <MoviePlaceHolder/>
-            <MoviePlaceHolder/>
-            <MoviePlaceHolder/>
-            <MoviePlaceHolder/>
-            <MoviePlaceHolder/>
-            <MoviePlaceHolder/>
-            <MoviePlaceHolder/>
-            <MoviePlaceHolder/>
-            <MoviePlaceHolder/>
-            <MoviePlaceHolder/>
-            <MoviePlaceHolder/>
-            <MoviePlaceHolder/>
-            <MoviePlaceHolder/>
-            <MoviePlaceHolder/>
-            <MoviePlaceHolder/>
-            <MoviePlaceHolder/>
-            <MoviePlaceHolder/>
-            <MoviePlaceHolder/>
-            <MoviePlaceHolder/>
-            <MoviePlaceHolder/>
-            <MoviePlaceHolder/>
-            <MoviePlaceHolder/>
-            <MoviePlaceHolder/>
-            <MoviePlaceHolder/>
-            <MoviePlaceHolder/>
-            <MoviePlaceHolder/>
-            <MoviePlaceHolder/>
-            <MoviePlaceHolder/>
-            <MoviePlaceHolder/>
-            <MoviePlaceHolder/>
-            <MoviePlaceHolder/>
-            <MoviePlaceHolder/>
+            <MoviePlaceHolder v-for="i in 16" :key="i" />
         </div>
-            <h4> Anothers movies
-                <span style="color: #0CC1CE; font-weight: 300">for you</span>
-            </h4>
+        <h4> Anothers movies
+            <span style="color: #0CC1CE; font-weight: 300">for you</span>
+        </h4>
         <div class="showroom-horizontal">
             <div class="decoration"></div>
-            <MoviePlaceHolder/>
-            <MoviePlaceHolder/>
-            <MoviePlaceHolder/>
-            <MoviePlaceHolder/>
-            <MoviePlaceHolder/>
-            <MoviePlaceHolder/>
-            <MoviePlaceHolder/>
-            <MoviePlaceHolder/>
+            <MoviePlaceHolder v-for="i in 12" :key="i" />
         </div>
     </div>
 </template>
@@ -139,7 +96,7 @@ h4 {
 
 .showroom-vertical {
     width: 43vh;
-    height: 51.1vh;
+    height: 65vh;
     margin-top: 1.3rem;
 
     display: flex;
@@ -159,7 +116,7 @@ h4 {
 
 .showroom-horizontal {
     width: 43vh;
-    height: 15rem;
+    height: 16rem;
     position: relative;
 
     display: flex;
@@ -186,7 +143,14 @@ h4 {
 
     .showroom-horizontal, .showroom-vertical {
         width: 200vh;
-        height: 42.5vh;
+    }
+
+    .showroom-horizontal {
+        height: 50vh;
+    }
+
+    .showroom-vertical {
+        height: 102vh;
     }
 }
 </style>

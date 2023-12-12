@@ -1,38 +1,43 @@
 <template>
     <div class="categories-buttons" ref="scrollContainer">
         <button
-            v-for="i in 8"
+            v-for="(content, i) in buttonContent"
             :key="i"
             :class="{ active: activeButton === i }"
             @click="scrollToButton(i)"
         >
-            {{ buttonContent[i-1] }}
+            {{ content }}
         </button>
     </div>
 </template>
 
-<script lang="ts" setup>
+<script setup>
 import { ref, nextTick } from 'vue'
 
-const activeButton = ref(null)
-const scrollContainer = ref<HTMLElement | null>(null)
+let activeButton = ref(0) // The first button is selected
+let scrollContainer = ref(null)
 
-const buttonContent = [
-    'Categorie 1',
-    'Categorie 2',
-    'Categorie 3',
-    'Categorie 4',
-    'Categorie 5',
-    'Categorie 6',
-    'Categorie 7',
-    'Categorie 8'
+let buttonContent = [
+    'All',
+    'Action',
+    'Adventure',
+    'Animation',
+    'Comedy',
+    'Crime',
+    'Drama',
+    'Fantasy',
+    'Horror',
+    'Mystery',
+    'Romance',
+    'Sci-Fi',
+    'Thriller'
 ]
 
-const scrollToButton = (index: number) => {
+const scrollToButton = (index) => {
     activeButton.value = index
     nextTick(() => {
-        const button = scrollContainer.value?.children[index - 1] as HTMLElement
-        scrollContainer.value!.scrollLeft = button.offsetLeft - button.clientWidth / 2
+        const button = scrollContainer.value?.children[index]
+        scrollContainer.value.scrollLeft = button.offsetLeft - button.clientWidth / 2
     })
 }
 </script>
