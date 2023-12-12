@@ -1,5 +1,24 @@
 <script setup>
+import { ref } from 'vue'
+import { useRouter } from '#app'
+import authService from '../services/service'
 
+const email = ref('')
+const password = ref('')
+const router = useRouter()
+
+const login = async () => {
+  console.log(`Email: ${email.value}, Password: ${password.value}`) // Add this line
+  const success = await authService.login(email.value, password.value)
+  if (success) {
+    if (process.client) {
+      window.localStorage.setItem('auth', 'true');
+    }
+    await router.push('/movies')
+  } else {
+    alert('Invalid email or password')
+  }
+}
 </script>
 
 <template>

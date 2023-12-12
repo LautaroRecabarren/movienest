@@ -1,7 +1,4 @@
 <script setup>
-import { computed } from 'vue';
-import { useRoute } from 'vue-router';
-
 const route = useRoute();
 const showUser = computed(() => route.path === '/movies');
 const showBack = computed(() => route.path === '/movie/_id');

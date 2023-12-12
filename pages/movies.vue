@@ -1,3 +1,18 @@
+<script setup lang="ts">
+import movieService from '../services/movieservices'
+
+definePageMeta({
+        layout: 'dashboard',
+        middleware: 'auth',
+})
+
+const movies = ref([])
+
+onMounted(async () => {
+  movies.value = await movieService.getMovies()
+})
+</script>
+
 <template>
     <div class="movies">
         <h2>Categories</h2>
@@ -58,12 +73,6 @@
         </div>
     </div>
 </template>
-
-<script setup lang="ts">
-definePageMeta({
-        layout: 'dashboard'
-})
-</script>
 
 <style scoped>
 .movies {

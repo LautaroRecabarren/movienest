@@ -1,20 +1,39 @@
-
-import type moviesVue from '~/pages/movies.vue';
 <template>
-    <div class="movie-card">
-        <img src="/img/mvsm.jpeg" alt="movie banner" class="movie-img">
-        <h3> MovieTitle</h3>
-        <img src="/img/xamplerate.svg" alt="rating" class="stars">
+    <div class="movie-card" v-if="movie">
+        <img :src="movie.Poster" alt="movie banner" class="movie-img">
+        <h3>{{ movie.Title }}</h3>
+        <RatingStars :score="movie.Metascore" class="stars"/>
     </div>
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted } from 'vue'
 
+interface Movie {
+    Poster: string;
+    Title: string;
+    Metascore: number;
+    // Add other properties as needed
+}
+
+const movie = ref<Movie | null>(null)
+
+const apiUrl = 'http://www.omdbapi.com/?i=tt3896198&apikey=59898298'
+
+onMounted(async () => {
+    const response = await fetch(apiUrl)
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    movie.value = await response.json()
+    console.log(movie.value)
+})
 </script>
 
 <style scoped>
 .movie-card {
     margin: 0.9rem 0;
+    padding: 0.3rem 0;
 
     display: flex;
     flex-direction: column;

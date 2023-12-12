@@ -1,9 +1,20 @@
 <template>
-    <input class="pass" type="password" :placeholder="placeholder" />
+    <input class="pass" type="password" :placeholder="placeholder" :value="modelValue" @input="updateValue" />
 </template>
 
 <script setup>
+  import { defineProps, defineEmits } from 'vue'
 
+  const props = defineProps({
+    modelValue: String,
+    placeholder: String
+  })
+
+  const emit = defineEmits(['update:modelValue'])
+
+  const updateValue = (event) => {
+    emit('update:modelValue', event.target.value)
+  }
 </script>
 
 <style>
@@ -23,4 +34,5 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-}</style>
+}
+</style>
